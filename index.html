@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Star Wars</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        @keyframes stars {
+            from { background-position: 0 0; }
+            to { background-position: -10000px 5000px; }
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            z-index: -1;
+            opacity: 0.7;
+            animation: stars 200s linear infinite;
+        }
+        header {
+            background-color: #333;
+            padding: 10px 20px;
+            text-align: center;
+            width: 100%;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        nav {
+            background-color: #444;
+            padding: 10px 20px;
+            text-align: center;
+            width: 100%;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .sidebar {
+            background-color: #222;
+            padding: 20px;
+            display: none;
+            flex-direction: column;
+            width: 250px;
+            position: fixed;
+            top: 80px;
+            left: 20px;
+            z-index: 1000;
+            border-radius: 5px;
+            transform: translateX(-300px);
+            transition: transform 0.3s ease-in-out;
+        }
+        .sidebar.active {
+            display: flex;
+            transform: translateX(0);
+        }
+        .sidebar h2 {
+            margin-top: 0;
+        }
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            margin: 10px 0;
+        }
+        .sidebar a:hover {
+            text-decoration: underline;
+        }
+        .menu-button {
+            background-color: #444;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            text-align: left;
+            width: 100%;
+            max-width: 250px;
+        }
+        .menu-button:hover {
+            background-color: #555;
+        }
+        .content {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+        .post {
+            margin-bottom: 20px;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 5px;
+        }
+        .post h2 {
+            margin-top: 0;
+        }
+        .post p {
+            line-height: 1.6;
+        }
+        aside {
+            padding: 20px;
+            background-color: #222;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 800px;
+        }
+        aside h2 {
+            margin-top: 0;
+        }
+        footer {
+            background-color: #333;
+            padding: 10px 20px;
+            text-align: center;
+            width: 100%;
+        }
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            nav a {
+                margin: 0 10px;
+            }
+            .menu-button {
+                padding: 8px;
+            }
+            .post, aside {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Blog de Star Wars</h1>
+    </header>
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Sobre</a>
+        <a href="#">Contacto</a>
+    </nav>
+    <div class="container">
+        <button class="menu-button" onclick="toggleMenu()">Menú</button>
+        <div class="sidebar" id="sidebar">
+            <h2>Menú</h2>
+            <a href="#">Preguntas Frecuentes</a>
+            <a href="#">Cómo Contactarnos</a>
+            <a href="#">Datos Esenciales</a>
+            <a href="#">Lo Nuevo</a>
+        </div>
+        <div class="content">
+            <div class="post">
+                <h2>Bienvenido a nuestro Blog de Star Wars</h2>
+                <p>En este blog encontrarás las últimas noticias, reseñas y artículos sobre el universo de Star Wars. ¡Que la fuerza te acompañe!</p>
+            </div>
+            <div class="post">
+                <h2>Últimas Noticias</h2>
+                <p>Actualización sobre la próxima película de Star Wars. ¡No te lo pierdas!</p>
+            </div>
+            <div class="post">
+                <h2>Noticias del Día</h2>
+                <p>Hoy se ha anunciado el lanzamiento de una nueva serie animada de Star Wars que explorará la historia de los Jedi en la Antigua República. ¡Estén atentos para más detalles!</p>
+            </div>
+            <div class="post">
+                <h2>¿Qué Está de Moda?</h2>
+                <p>La última tendencia entre los fans de Star Wars es la colección de figuras Funko Pop de los personajes de 'The Mandalorian'. ¿Ya tienes las tuyas?</p>
+            </div>
+            <div class="post">
+                <h2>Próximas Películas y Series</h2>
+                <p>En el horizonte tenemos varias producciones emocionantes, como la serie de Ahsoka Tano y la película de Rogue Squadron. ¡Prepárate para más aventuras en una galaxia muy, muy lejana!</p>
+            </div>
+            <!-- Aquí puedes añadir más publicaciones -->
+        </div>
+        <aside>
+            <h2>ÚLTIMAS NOTICIAS</h2>
+            <ul>
+                <li>Nueva serie animada de Star Wars anunciada</li>
+                <li>Tráiler de la próxima película de Star Wars lanzado</li>
+                <li>Entrevista exclusiva con el director de 'The Mandalorian'</li>
+                <!-- Añade más elementos de noticias aquí -->
+            </ul>
+        </aside>
+    </div>
+    <footer>
+        <p>&copy; 2024 Blog de Star Wars. Todos los derechos reservados.</p>
+        <p>Esta página fue totalmente desarrollada por Inteligencia Artificial ChatGPT-3.5</p>
+    </footer>
+    <script>
+        function toggleMenu() {
+            var sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
